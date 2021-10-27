@@ -41,13 +41,13 @@ jobs:
         rm .env
         touch .env
         echo "REACT_APP_PUZZLE_ABI=" > ".env"
-        echo ${{REACT_APP_PUZZLE_ABI}} > ".env"
+        echo ${{env.REACT_APP_PUZZLE_ABI}} > ".env"
         echo "\n" > ".env"
         echo "REACT_APP_PUZZLE_ADDRESS=" > ".env"
-        echo ${{REACT_APP_PUZZLE_ADDRESS}} > ".env"
+        echo ${{env.REACT_APP_PUZZLE_ADDRESS}} > ".env"
         echo "\n" > ".env"
         echo "REACT_APP_INFURA_KEY=" > ".env"
-        echo ${{REACT_APP_INFURA_KEY}} > ".env"
+        echo ${{env.REACT_APP_INFURA_KEY}} > ".env"
     - name: npm install, build, and test
       run: |
         # Build and test the project, then
