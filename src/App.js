@@ -66,26 +66,34 @@ class App extends React.Component {
 
           <Grid.Column>
 
-            {this.state.loading ? <Loader active inline /> :
-              <Statistic.Group size="tiny" horizontal >
-                <Statistic>
-                  <Statistic.Value>address</Statistic.Value>
-                  <Statistic.Label>
-                    <a target="_blank" rel="noreferrer" href={`https://rinkeby.etherscan.io/address/${puzzle.options.address}`}>
-                      {puzzle.options.address}
-                    </a>
-                  </Statistic.Label>
-                </Statistic>
-                <Statistic>
-                  <Statistic.Value>{this.state.prize} ETH</Statistic.Value>
-                  <Statistic.Label>prize</Statistic.Label>
-                </Statistic>
-                <Statistic>
-                  <Statistic.Value>{this.state.isPaused ? "paused" : "game is on!"}</Statistic.Value>
-                  <Statistic.Label>state</Statistic.Label>
-                </Statistic>
-              </Statistic.Group>
-            }
+            <Statistic.Group size="tiny" horizontal >
+              <Statistic>
+                <Statistic.Value>address</Statistic.Value>
+                <Statistic.Label>
+                  <a target="_blank" rel="noreferrer" href={`https://rinkeby.etherscan.io/address/${puzzle.options.address}`}>
+                    {puzzle.options.address}
+                  </a>
+                </Statistic.Label>
+              </Statistic>
+              <Statistic>
+                <Statistic.Value>{this.state.prize} ETH</Statistic.Value>
+                <Statistic.Label>prize</Statistic.Label>
+              </Statistic>
+              <Statistic>
+                <Statistic.Value>{this.state.isPaused ? "paused" : "game is on!"}</Statistic.Value>
+                <Statistic.Label>state</Statistic.Label>
+              </Statistic>
+              <Statistic>
+                <Statistic.Value>
+                  status:
+                </Statistic.Value>
+                <Statistic.Label>
+                  { !this.state.loading ? "" :
+                  <Loader active inline />
+                  }
+                </Statistic.Label>
+              </Statistic>
+            </Statistic.Group>
           </Grid.Column>
 
           <Grid.Column>
@@ -114,7 +122,7 @@ class App extends React.Component {
                 <Button color="green"
                   onClick={this.commitAnswer}
                   disabled={this.state.isPaused || this.state.isCommiting}>
-                    Guess!
+                  Guess!
                 </Button>
 
               </Input>
