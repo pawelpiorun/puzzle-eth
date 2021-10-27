@@ -37,7 +37,7 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
     - name: setup .env file
-      run: 
+      run: |
         rm ".env"
         touch ".env"
         echo "REACT_APP_PUZZLE_ABI=" > ".env"
