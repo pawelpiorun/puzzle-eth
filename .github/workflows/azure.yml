@@ -41,8 +41,6 @@ jobs:
         rm -f ".env"
         rm -f ".env.local"
         touch ".env.local"
-        printf "REACT_APP_PUZZLE_ABI=" >> ".env.local"
-        printf ${{secrets.REACT_APP_PUZZLE_ABI}} >> ".env.local"
         printf "\n" >> ".env.local"
         printf "REACT_APP_PUZZLE_ADDRESS=" >> ".env.local"
         printf ${{secrets.REACT_APP_PUZZLE_ADDRESS}} >> ".env.local"
