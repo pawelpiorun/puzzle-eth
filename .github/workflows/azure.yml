@@ -39,15 +39,16 @@ jobs:
     - name: setup .env file
       run: |
         rm -f ".env"
-        touch ".env"
-        printf "REACT_APP_PUZZLE_ABI=" > ".env"
-        printf ${{secrets.REACT_APP_PUZZLE_ABI}} > ".env"
-        printf "\n" > ".env"
-        printf "REACT_APP_PUZZLE_ADDRESS=" > ".env"
-        printf ${{secrets.REACT_APP_PUZZLE_ADDRESS}} > ".env"
-        printf "\n" > ".env"
-        printf "REACT_APP_INFURA_KEY=" > ".env"
-        printf ${{secrets.REACT_APP_INFURA_KEY}} > ".env"
+        rm -f ".env.local"
+        touch ".env.local"
+        printf "REACT_APP_PUZZLE_ABI=" > ".env.local"
+        printf ${{secrets.REACT_APP_PUZZLE_ABI}} > ".env.local"
+        printf "\n" > ".env.local"
+        printf "REACT_APP_PUZZLE_ADDRESS=" > ".env.local"
+        printf ${{secrets.REACT_APP_PUZZLE_ADDRESS}} > ".env.local"
+        printf "\n" > ".env.local"
+        printf "REACT_APP_INFURA_KEY=" > ".env.local"
+        printf ${{secrets.REACT_APP_INFURA_KEY}} > ".env.local"
     - name: npm install, build, and test
       run: |
         # Build and test the project, then
