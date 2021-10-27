@@ -7,6 +7,11 @@ contract Puzzle {
     address private manager;
     bytes32 private answer;
     
+    uint64 public puzzleID;
+    
+    //in case the puzzle provider changes
+    //string private _puzzleUri;
+    
     event NewAnswer();
     event AnswerGuessed(address indexed winner, uint prize);
     
@@ -19,10 +24,11 @@ contract Puzzle {
         _;
     }
     
-    function setNewAnswer(string memory word) public payable onlyManager {
+    function setNewAnswer(string memory word, uint64 id) public payable onlyManager {
         require(msg.value > 0);
         answer = keccak256(abi.encodePacked(word));
         prize = msg.value;
+        puzzleID = id;
         emit NewAnswer();
     }
     
