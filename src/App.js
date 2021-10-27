@@ -59,7 +59,7 @@ class App extends React.Component {
 
         <Header as='h2' icon textAlign='center'>
           <Icon name='chain' circular />
-          <Header.Content>Puzzle</Header.Content>
+          <Header.Content>PuzzleChain</Header.Content>
         </Header>
 
         <Grid style={{ marginTop: "20px" }} columns={2} divided>

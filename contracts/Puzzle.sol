@@ -4,8 +4,8 @@ pragma solidity ^0.8.9;
 
 contract Puzzle {
     uint public prize;
-    address private manager;
     bytes32 private answer;
+    address private manager;
     
     uint64 public puzzleID;
     
@@ -34,7 +34,8 @@ contract Puzzle {
     
     function guessAnswer(string memory word) public {
         require(answer != 0, "Puzzle solve is paused.");
-        require(keccak256(abi.encodePacked(word)) == answer, "Wrong answer!");
+        if (keccak256(abi.encodePacked(word)) != answer)
+            return;
         
         (bool success, ) = msg.sender.call{value: prize}("");
         require(success);
